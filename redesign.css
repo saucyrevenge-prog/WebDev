@@ -29,3 +29,14 @@
 .contact-direct{font-size:15px}
 .contact-sigil img{opacity:.24}
 @media(max-width:740px){.new-hero{min-height:550px;padding:135px 0 75px}.new-hero h1{font-size:clamp(43px,9.8vw,65px)}.project-gallery{gap:20px}.gallery-copy p{min-height:0}.contact-area{padding:75px 0}}
+
+/* Moving services banner */
+.capability-strip{display:block;overflow:hidden;background:#151b14;border-block:1px solid #344331}
+.capability-strip .strip-inner{display:block;width:100%;overflow:hidden}
+.capability-strip .strip-track{display:flex;width:max-content;align-items:center;animation:service-marquee 32s linear infinite;will-change:transform}
+.capability-strip .strip-track span{display:inline-flex;align-items:center;gap:14px;padding:19px 35px;border:0;white-space:nowrap;font:500 11px 'DM Mono',monospace;letter-spacing:.09em;color:#d1dacb}
+.capability-strip .strip-track b{font-size:18px;color:#b9ec6f}
+.capability-strip:hover .strip-track{animation-play-state:paused}
+@keyframes service-marquee{to{transform:translateX(-50%)}}
+@media(max-width:740px){.capability-strip .strip-inner{display:block}.capability-strip .strip-track span{padding:16px 24px;font-size:10px;white-space:nowrap}}
+@media(prefers-reduced-motion:reduce){.capability-strip .strip-track{animation:none;flex-wrap:wrap;width:100%;justify-content:center}.capability-strip .strip-track span:nth-child(n+5){display:none}}
