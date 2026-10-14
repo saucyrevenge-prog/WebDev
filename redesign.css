@@ -56,3 +56,5 @@
 .upcoming-category{text-align:right;white-space:nowrap;color:#879988}
 .upcoming-disclaimer{margin-top:20px;font-size:12px;color:#839482}
 @media(max-width:740px){.upcoming-area{padding:72px 0}.upcoming-heading{display:block}.upcoming-heading>p{margin-top:15px}.upcoming-list article{display:block;padding:25px 0}.upcoming-category{display:block;text-align:left;margin-top:18px}}
+
+.upcoming-list .upcoming-next{background:linear-gradient(90deg,rgba(184,235,108,.065),transparent 75%);border-left:3px solid #b9ec6f;padding-left:22px}.upcoming-next .upcoming-state{color:#cafa86}
