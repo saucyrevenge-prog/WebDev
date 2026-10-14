@@ -12,3 +12,61 @@
 @media(max-width:1000px){.process-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.process-grid{grid-template-columns:1fr}.process-step{min-height:0;padding:29px}.process-step h3{margin:28px 0 12px}}
 
 .contact-form-wrap{margin-top:75px;background:#161a14;color:#f0f2e9;padding:45px;border:1px solid #343c2c}.contact-form-wrap>.mono{color:var(--acid);margin-bottom:28px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.inquiry-form label{display:block;color:#cbd3bd;font:11px var(--mono);letter-spacing:.1em}.inquiry-form input,.inquiry-form select,.inquiry-form textarea{width:100%;margin-top:11px;display:block;background:#242a20;border:1px solid #515c46;color:#fff;min-height:53px;padding:15px;font:16px 'DM Sans',sans-serif;border-radius:0}.inquiry-form textarea{min-height:140px;resize:vertical}.inquiry-form input::placeholder,.inquiry-form textarea::placeholder{color:#a2ad99}.inquiry-form input:focus,.inquiry-form select:focus,.inquiry-form textarea:focus{outline:2px solid var(--acid);outline-offset:2px}.inquiry-form label.wide{grid-column:1/-1}.form-actions{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-top:28px}.form-actions .btn{cursor:pointer}.form-actions .btn:disabled{opacity:.6;cursor:progress}.form-note,.form-status,.contact-direct{color:#bfcbb1;font-size:13px}.form-status:not(:empty){margin-top:24px;padding:14px;border-left:2px solid var(--acid);background:#293224}.contact-direct{margin-top:28px}.contact-direct a{text-decoration:underline;color:var(--acid)}.spam-trap{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;overflow:hidden!important;left:-9999px!important}@media(max-width:740px){.contact-form-wrap{padding:23px;margin-top:40px}.form-grid{grid-template-columns:1fr}}
+
+/* Editorial refinement — lower visual density, more variety, fewer boxed elements */
+:root{--bg:#121411;--surface:#20231d;--line:#363c32}
+.section{padding:clamp(90px,10vw,158px) 0}
+.section-head{grid-template-columns:minmax(0,1.3fr) minmax(250px,.7fr);margin-bottom:clamp(38px,5vw,75px);align-items:center}
+.section-head h2,.big-title{font-size:clamp(48px,6vw,91px);letter-spacing:-.075em;text-transform:none;max-width:760px}
+.section-head p{font-size:17px;line-height:1.85;max-width:410px}
+.hero{min-height:88svh}.hero h1{letter-spacing:-.105em}.hero-side .rotary{border-color:#4a5440;opacity:.7}
+.hero-bottom{opacity:.76}
+.projects{border-top:0;display:grid;gap:140px}
+.project,.project:nth-child(even){border:0;padding:0;gap:clamp(30px,5.5vw,110px);grid-template-columns:1fr 1.15fr}
+.project:nth-child(even){grid-template-columns:1.15fr 1fr}
+.project-info{max-width:555px}
+.project-number{margin-bottom:22px;color:#9cab81}
+.project h3{font-size:clamp(43px,5vw,72px);line-height:1.06;margin-bottom:25px}
+.project-info p{font-size:17px;line-height:1.86}
+.project-art{aspect-ratio:1.34;min-height:300px;border-radius:0;box-shadow:0 20px 60px #0002}
+.project:nth-child(2) .project-art{transform:translateY(35px)}
+.project:nth-child(3) .project-art{aspect-ratio:1.55}
+.project .chips{margin:28px 0 35px}
+.chips span{border:0;border-bottom:1px solid #606758;border-radius:0;padding:5px 1px;margin-right:15px}
+.project .text-link{border:0;padding-bottom:4px;gap:14px}.project .text-link:hover{gap:24px}
+.capability-section{background:#e8e9df}
+.service-row{grid-template-columns:65px 1.1fr .75fr 25px;padding:30px 8px;border-color:#afb4a6;gap:22px}
+.service-row:hover{padding-left:14px;background:transparent}
+.service-row h3{font-size:clamp(26px,3.2vw,43px);font-weight:500}
+.service-row p{max-width:360px;line-height:1.65}
+.service-row .arrow{font-size:22px}
+.system-section{background:#1c201a}
+.system-grid{gap:9vw}
+.system-copy h2{font-size:clamp(47px,6vw,83px);max-width:650px;text-transform:none}
+.architecture{border:0;border-top:1px solid #576549;border-bottom:1px solid #576549;background:radial-gradient(circle at center,#333f2b55,transparent 66%);padding:36px 15px}
+.arch-nodes span{border:0;background:#2d3828b0;padding:16px 8px}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;background:transparent;border:0}
+.process-step{background:transparent;min-height:0;padding:30px 0;border-top:1px solid #59604f}
+.process-step h3{font-size:clamp(24px,2.2vw,33px);margin:45px 0 18px}
+.process-step p{line-height:1.8;color:#adb5a7}
+.about-grid{grid-template-columns:.9fr 1.1fr}
+.about-grid h2{font-size:clamp(51px,6.3vw,92px);text-transform:none}
+.about-copy p{line-height:1.85}
+.toolkit{border:0;gap:50px;margin-top:90px}
+.toolkit>div,.toolkit>div:first-child{padding:22px 0 0;border:0;border-top:1px solid #535e4a}
+.faq-section{background:#171b16}
+.faq-list details{padding:31px 0}
+.faq-list summary{font-size:clamp(21px,2.3vw,29px)}
+.contact{padding-top:115px}
+.contact h2{font-size:clamp(65px,9vw,140px);line-height:.95;max-width:1000px;letter-spacing:-.09em}
+.contact-form-wrap{border:0;margin-top:95px;padding:38px 0 0;border-top:1px solid #52613b;background:transparent;color:#151914}
+.contact-form-wrap>.mono{color:#40562c}
+.inquiry-form label{color:#36462a}
+.inquiry-form input,.inquiry-form select,.inquiry-form textarea{background:transparent;border:0;border-bottom:1px solid #6c8050;color:#141914;padding:13px 0;min-height:50px}
+.inquiry-form input::placeholder,.inquiry-form textarea::placeholder{color:#5d6d4a}
+.inquiry-form select option{background:#e5efcb;color:#141914}
+.form-note,.form-status,.contact-direct{color:#39492a}
+.form-status:not(:empty){background:#e0edb7;border-color:#243818}
+.contact-direct a{color:#1a3111}
+@media(max-width:1000px){.projects{gap:90px}.process-grid{grid-template-columns:repeat(2,1fr)}.section-head{grid-template-columns:1fr}.section-head p{margin:12px 0 0}.project,.project:nth-child(even){grid-template-columns:1fr 1fr}.project-art{min-height:260px}}
+@media(max-width:740px){.section{padding:85px 0}.projects{gap:75px}.project,.project:nth-child(even){grid-template-columns:1fr;gap:25px}.project:nth-child(even) .project-info{order:1}.project:nth-child(even) .project-art{order:2}.project:nth-child(2) .project-art{transform:none}.project-art{min-height:250px}.project h3{font-size:clamp(43px,10vw,65px)}.service-row{grid-template-columns:33px 1fr 20px}.service-row p{grid-column:2}.process-grid{grid-template-columns:1fr;gap:8px}.process-step{padding:26px 0}.process-step h3{margin:20px 0}.toolkit{gap:8px}.contact-form-wrap{margin-top:55px}.contact h2{font-size:clamp(62px,13vw,98px)}}
