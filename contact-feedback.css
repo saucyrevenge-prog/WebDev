@@ -1,0 +1,6 @@
+/* Contact feedback: states follow the actual form response. */
+#inquiryForm[data-submit-state="pending"] #inquirySubmit { opacity: .7; cursor: progress; }
+#inquiryForm #formStatus:not(:empty) { padding: 12px 14px; border-left: 3px solid currentColor; background: rgba(255,255,255,.05); }
+#inquiryForm[data-submit-state="success"] #formStatus { color: #c6e88a; }
+#inquiryForm[data-submit-state="error"] #formStatus { color: #f0a9a0; }
+#inquiryForm input:focus-visible,#inquiryForm textarea:focus-visible { outline: 2px solid #c6e88a; outline-offset: 2px; }
