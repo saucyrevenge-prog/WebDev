@@ -13,7 +13,7 @@ const formStatus=document.getElementById('formStatus'),submit=document.getElemen
 inquiryForm.addEventListener('submit',async(e)=>{
 e.preventDefault();if(!inquiryForm.reportValidity())return;
 const payload=Object.fromEntries(new FormData(inquiryForm).entries());
-submit.disabled=true;submit.textContent='Sending…';formStatus.textContent='Sending your inquiry…';formStatus.setAttribute('role','status');formStatus.setAttribute('aria-live','polite');inquiryForm.dataset.submitState='pending';submit.setAttribute('aria-busy','true');
+if(submit.disabled)return;submit.disabled=true;submit.textContent='Sending…';formStatus.textContent='Sending your inquiry…';formStatus.setAttribute('role','status');formStatus.setAttribute('aria-live','polite');inquiryForm.dataset.submitState='pending';submit.setAttribute('aria-busy','true');
 try{const r=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const result=await r.json();if(!r.ok||!result.ok)throw new Error(result.error||'Unable to send.');formStatus.textContent='Message sent. Thank you — I’ll get back to you by email.';inquiryForm.dataset.submitState='success';inquiryForm.reset()}catch(err){formStatus.textContent=err.message||'Unable to send. Please email saucyrevenge@gmail.com directly.';inquiryForm.dataset.submitState='error'}finally{submit.removeAttribute('aria-busy');submit.disabled=false;submit.innerHTML='Send project enquiry <span>↗</span>'}
 });
 }
