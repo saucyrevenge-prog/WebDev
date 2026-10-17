@@ -4,3 +4,10 @@
 #inquiryForm[data-submit-state="success"] #formStatus { color: #c6e88a; }
 #inquiryForm[data-submit-state="error"] #formStatus { color: #f0a9a0; }
 #inquiryForm input:focus-visible,#inquiryForm textarea:focus-visible { outline: 2px solid #c6e88a; outline-offset: 2px; }
+
+
+/* Contact request progress appears only while the request is actually in flight. */
+#inquiryForm[data-submit-state=pending] #inquirySubmit::before{content:"";display:inline-block;width:14px;height:14px;margin-right:10px;vertical-align:middle;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:portfolio-progress .85s linear infinite}
+#inquiryForm[data-submit-state=pending] #formStatus{border-left-color:#c6e88a}
+@keyframes portfolio-progress{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){#inquiryForm[data-submit-state=pending] #inquirySubmit::before{animation:none}}
