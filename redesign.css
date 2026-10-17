@@ -58,3 +58,25 @@
 @media(max-width:740px){.upcoming-area{padding:72px 0}.upcoming-heading{display:block}.upcoming-heading>p{margin-top:15px}.upcoming-list article{display:block;padding:25px 0}.upcoming-category{display:block;text-align:left;margin-top:18px}}
 
 .upcoming-list .upcoming-next{background:linear-gradient(90deg,rgba(184,235,108,.065),transparent 75%);border-left:3px solid #b9ec6f;padding-left:22px}.upcoming-next .upcoming-state{color:#cafa86}
+
+
+/* Portfolio micro-interactions: progressive enhancement, no continuous motion. */
+:root{--portfolio-motion:220ms;--portfolio-ease:cubic-bezier(.2,.8,.2,1)}
+.gallery-card,.button-lime,.button-outline,.nav-cta{
+ transition-property:transform,box-shadow,border-color,background-color,color;
+ transition-duration:var(--portfolio-motion);
+ transition-timing-function:var(--portfolio-ease);
+}
+@media(hover:hover) and (pointer:fine){
+ .gallery-card:hover{transform:translateY(-3px)}
+ .button-lime:hover,.button-outline:hover,.nav-cta:hover{transform:translateY(-2px)}
+}
+.button-lime:active,.button-outline:active,.nav-cta:active{transform:translateY(0) scale(.99)}
+.gallery-card:focus-within{outline:2px solid #c6e88a;outline-offset:4px}
+.button-lime:focus-visible,.button-outline:focus-visible,.nav-cta:focus-visible,.menu-toggle:focus-visible{
+ outline:2px solid #c6e88a;outline-offset:4px;
+}
+@media(prefers-reduced-motion:reduce){
+ .gallery-card,.button-lime,.button-outline,.nav-cta{transition:none!important;animation:none!important}
+ .gallery-card:hover,.button-lime:hover,.button-outline:hover,.nav-cta:hover,.button-lime:active,.button-outline:active,.nav-cta:active{transform:none!important}
+}
