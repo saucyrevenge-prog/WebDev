@@ -7,6 +7,7 @@ const ui=fr?{sending:'Envoi…',pending:'Envoi de votre demande…',success:'Mes
 const inquiryForm=document.getElementById('inquiryForm');
 document.querySelector('[data-offer]')?.addEventListener('click',()=>{if(inquiryForm){inquiryForm.elements.service.value='$500 bilingual website offer';inquiryForm.elements.budget.value='$500 bilingual website offer';}});
 if(inquiryForm){
+if(new URLSearchParams(location.search).get('offer')==='bilingual'){inquiryForm.elements.service.value='$500 bilingual website offer';inquiryForm.elements.budget.value='$500 bilingual website offer';}
 const formStatus=document.getElementById('formStatus'),submit=document.getElementById('inquirySubmit');
 inquiryForm.addEventListener('input',e=>e.target.setCustomValidity?.(''));
 inquiryForm.addEventListener('change',e=>e.target.setCustomValidity?.(''));

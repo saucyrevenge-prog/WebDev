@@ -13,3 +13,10 @@ html[lang=fr-CA] .new-hero h1{font-size:clamp(44px,5.4vw,84px)}
 @media(min-width:741px) and (max-width:1100px){.links{gap:13px}.links>a{font-size:12px}.links .nav-cta{padding:9px 12px}.brand-type strong{font-size:16px}.nav{gap:10px}.brand{gap:8px}.brand-icon{width:36px;height:36px}}
 @media(max-width:740px){.offer-layout{grid-template-columns:1fr;gap:32px}.offer-details{border-left:0;border-top:1px solid #526443;padding:28px 0 0}.top .nav>.nav-cta{font-size:11px;padding:8px}.top .nav>.language-switch{font-size:12px;padding:8px}.top .nav{gap:10px}.links .language-switch{align-self:flex-start}html[lang=fr-CA] .new-hero h1{font-size:clamp(38px,9vw,65px)}}
 @media(max-width:420px){.nav:has(>.language-switch) .brand-type strong{font-size:13px}.nav:has(>.language-switch) .brand-icon{display:none}}
+
+/* Two equal groups keep the promotional ticker seamless. */
+.capability-strip .strip-group{display:flex;align-items:center;flex-shrink:0}
+.capability-strip .banner-offer a{color:var(--lime);font-weight:700;text-decoration:underline;text-underline-offset:5px}
+.capability-strip .banner-offer a:focus-visible{outline:2px solid var(--lime);outline-offset:7px}
+.capability-strip:focus-within .strip-track{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.capability-strip .strip-group{flex-wrap:wrap;justify-content:center;max-width:100%}.capability-strip .strip-group[aria-hidden=true]{display:none}.capability-strip .strip-track span:nth-child(n+5){display:inline-flex}.capability-strip .banner-offer{max-width:100%;white-space:normal}.capability-strip .banner-offer a{white-space:normal}}
