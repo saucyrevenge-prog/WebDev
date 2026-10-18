@@ -1,0 +1,18 @@
+/* One shared footer layout for the full English and French site. */
+.footer.site-footer{background:#0b100b;border-top:1px solid #2c3828;padding:28px 0 20px}
+.site-footer .footer-main{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.site-footer .footer-identity{display:inline-flex;flex-direction:column;gap:4px;text-decoration:none;min-width:0}
+.site-footer .footer-identity strong{font:600 16px/1.4 'Space Grotesk',Arial,sans-serif;letter-spacing:-.02em;color:#edf2e7}
+.site-footer .footer-identity span{font-size:12px;line-height:1.6;color:#aebca4}
+.site-footer .footer-site-links,.site-footer .footer-policy-links{display:flex;align-items:center;flex-wrap:wrap;gap:10px 25px}
+.site-footer .footer-site-links a,.site-footer .footer-policy-links a{font-size:13px;line-height:1.6;text-decoration:none;color:#c1ceB6;padding:4px 0;text-underline-offset:4px;white-space:nowrap}
+.site-footer .footer-site-links .footer-estimate-link{font-weight:600;color:var(--lime)}
+.site-footer .footer-site-links .footer-back-top{color:#aebca4}
+.site-footer .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:14px 24px;margin-top:20px;padding-top:14px;border-top:1px solid #263322}
+.site-footer .footer-copyright{font-size:12px;line-height:1.6;color:#9fac96}
+.site-footer .footer-policy-links{gap:8px 24px}
+.site-footer .footer-policy-links a{font-size:12px;color:#aebca4}
+.site-footer a:hover{color:var(--lime);text-decoration:underline}
+.site-footer a:focus-visible{outline:2px solid var(--lime);outline-offset:5px;border-radius:2px}
+@media(max-width:900px){.site-footer .footer-main{align-items:flex-start;gap:20px}.site-footer .footer-site-links{justify-content:flex-end;gap:8px 20px}}
+@media(max-width:600px){.footer.site-footer{padding:25px 0 20px}.site-footer .footer-main{flex-direction:column;gap:18px}.site-footer .footer-site-links{justify-content:flex-start;gap:10px 22px}.site-footer .footer-bottom{align-items:flex-start;flex-direction:column;gap:8px;margin-top:18px;padding-top:14px}.site-footer .footer-policy-links{gap:8px 22px}}
