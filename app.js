@@ -8,6 +8,15 @@ const inquiryForm=document.getElementById('inquiryForm');
 document.querySelector('[data-offer]')?.addEventListener('click',()=>{if(inquiryForm){inquiryForm.elements.service.value='$500 bilingual website offer';inquiryForm.elements.budget.value='$500 bilingual website offer';}});
 if(inquiryForm){
 if(new URLSearchParams(location.search).get('offer')==='bilingual'){inquiryForm.elements.service.value='$500 bilingual website offer';inquiryForm.elements.budget.value='$500 bilingual website offer';}
+const estimateParams=new URLSearchParams(location.search);
+if(estimateParams.get('estimate')==='1'&&window.SoucyPricing){
+ let saved={};try{saved=JSON.parse(sessionStorage.getItem('soucy.estimator.v1')||'{}')}catch{}
+ const choices={...window.SoucyPricing.fromQuery(estimateParams),notes:saved.notes};
+ const estimate=window.SoucyPricing.calculate(choices);
+ inquiryForm.elements.service.value='Bilingual website';
+ inquiryForm.elements.budget.value=estimate.knownBuild<1500?'Under $1,500':estimate.knownBuild<3000?'$1,500–$3,000':estimate.knownBuild<6000?'$3,000–$6,000':estimate.knownBuild<10000?'$6,000–$10,000':'$10,000+';
+ inquiryForm.elements.message.value=window.SoucyPricing.summary(choices,fr);
+}
 const formStatus=document.getElementById('formStatus'),submit=document.getElementById('inquirySubmit');
 inquiryForm.addEventListener('input',e=>e.target.setCustomValidity?.(''));
 inquiryForm.addEventListener('change',e=>e.target.setCustomValidity?.(''));

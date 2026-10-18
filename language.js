@@ -3,9 +3,9 @@
  const url=new URL(location.href),explicit=url.searchParams.get('lang');
  const isFrench=url.pathname==='/fr'||url.pathname.startsWith('/fr/');
  const current=isFrench?'fr':'en';
- const offerRoutes={'/bilingual-websites/':'/fr/sites-web-bilingues/'};
+ const offerRoutes={'/bilingual-websites/':'/fr/sites-web-bilingues/','/pricing-estimator/':'/fr/estimateur-de-prix/'};
  const englishPath=Object.keys(offerRoutes).find(path=>offerRoutes[path]===url.pathname)||(isFrench?(url.pathname.slice(3)||'/'):url.pathname);
- const supported=['/bilingual-websites/','/','/index.html','/projects/buildcurrent/','/projects/elm-city/','/projects/jim-soucy/'];
+ const supported=['/pricing-estimator/','/bilingual-websites/','/','/index.html','/projects/buildcurrent/','/projects/elm-city/','/projects/jim-soucy/'];
  try{
   if(explicit==='en'||explicit==='fr'){
    localStorage.setItem('soucy.language',explicit);
