@@ -80,3 +80,73 @@
  .gallery-card,.button-lime,.button-outline,.nav-cta{transition:none!important;animation:none!important}
  .gallery-card:hover,.button-lime:hover,.button-outline:hover,.nav-cta:hover,.button-lime:active,.button-outline:active,.nav-cta:active{transform:none!important}
 }
+
+
+/* October 2026 refinement: a calmer, more cohesive portfolio */
+:root{--portfolio-border:#364338;--portfolio-radius:14px;--portfolio-accent:#c7e89b}
+html{scroll-padding-top:96px}
+body{font-synthesis:none}
+.top{border-bottom-color:#354036}
+.nav{min-height:78px;height:auto;padding-block:11px}
+.brand-type strong{letter-spacing:-.035em}
+.links>a{line-height:1.35}
+.links>a:not(.nav-cta):not(.language-switch){text-underline-offset:7px}
+.links>a:not(.nav-cta):not(.language-switch):hover{text-decoration:underline}
+.new-hero{isolation:isolate}
+.new-hero h1{text-wrap:balance}
+.new-hero p{max-width:650px;line-height:1.72}
+.showcase-header h2,.about-clean h2,.services-heading h2,.contact-heading h2{text-wrap:balance}
+.gallery-visual{overflow:hidden;border:1px solid #465249;border-radius:var(--portfolio-radius)}
+.gallery-card{min-width:0}
+.gallery-copy h3{line-height:1.14}
+.gallery-copy p{max-width:54ch;line-height:1.75}
+.gallery-copy a,.subtle-link{text-decoration-thickness:1px;text-underline-offset:4px}
+.service-lines>div{transition:background-color .18s ease}
+.service-lines span{line-height:1.2}
+.contact-form-shell .inquiry-form input,
+.contact-form-shell .inquiry-form select,
+.contact-form-shell .inquiry-form textarea{width:100%;min-width:0;min-height:48px;border-radius:8px;transition:border-color .18s ease,box-shadow .18s ease;background:#1b261e}
+.contact-form-shell .inquiry-form textarea{min-height:140px;resize:vertical}
+.contact-form-shell .inquiry-form input:focus-visible,
+.contact-form-shell .inquiry-form select:focus-visible,
+.contact-form-shell .inquiry-form textarea:focus-visible{outline:2px solid var(--portfolio-accent);outline-offset:2px;border-color:var(--portfolio-accent)}
+.contact-form-shell .inquiry-form input::placeholder,
+.contact-form-shell .inquiry-form textarea::placeholder{color:#b6c5b4}
+.contact-form-shell .form-actions{align-items:center;gap:18px;flex-wrap:wrap}
+.contact-form-shell .form-actions .btn{border-radius:9px;min-height:48px}
+.contact-form-shell .form-status:not(:empty){padding:13px 16px;border-radius:8px;line-height:1.6}
+a:focus-visible,button:focus-visible{outline:2px solid var(--portfolio-accent);outline-offset:4px}
+@media(hover:hover) and (pointer:fine){
+ .service-lines>div:hover{background-color:#ffffff05}
+ .gallery-card:hover .gallery-visual{border-color:#718264}
+}
+@media(max-width:1100px){
+ .nav{gap:12px}
+ .links{gap:14px;flex-wrap:wrap;justify-content:flex-end}
+ .hero-content{width:min(1260px,calc(100% - 56px))}
+}
+@media(max-width:740px){
+ html{scroll-padding-top:82px}
+ .container,.hero-content{width:calc(100% - 36px)}
+ .nav{min-height:68px}
+ .new-hero{min-height:0;padding:138px 0 82px}
+ .new-hero h1{font-size:clamp(40px,9.5vw,63px);line-height:1.08;overflow-wrap:normal}
+ .new-hero p{font-size:16px;line-height:1.7}
+ .showcase,.about-area,.services-area{padding-block:70px}
+ .showcase-header{gap:16px;margin-bottom:30px}
+ .gallery-visual{border-radius:10px}
+ .gallery-copy{padding:19px 0 25px}
+ .gallery-copy p{min-height:0}
+ .contact-area{padding:75px 0}
+ .contact-heading{margin-bottom:35px}
+ .contact-form-shell{padding-block:25px}
+}
+@media(max-width:380px){
+ .new-hero h1{font-size:39px}
+ .hero-actions>a{width:100%;justify-content:center}
+ .service-lines span{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important}
+ .service-lines>div,.contact-form-shell .inquiry-form input,.contact-form-shell .inquiry-form textarea{transition:none}
+}
