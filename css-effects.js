@@ -94,6 +94,8 @@ cards.forEach(card=>{
  const key=[...card.classList].find(c=>c.startsWith('effect-'))?.slice(7);
  const baseCode=frameBase+'\n'+(fullCode[key]||'.demo:hover { '+card.dataset.code+' }')+motionNote;
  const codeForSettings=()=>baseCode+'\n/* Adjustable preview settings */\n.demo { animation-duration: '+(Number(speed.value)/100).toFixed(2)+'s; transition-duration: '+(Number(speed.value)/100).toFixed(2)+'s; filter: saturate('+ (Number(intensity.value)/100).toFixed(2)+'); }';
+ card._getCode=codeForSettings;
+ const getCode=codeForSettings;
  const demo=card.querySelector('.demo');
  demo.addEventListener('click',()=>{
   const active=card.classList.toggle('active');
