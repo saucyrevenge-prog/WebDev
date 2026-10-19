@@ -7,6 +7,29 @@ const words=lang==='fr'
  :{copied:'Copied!',copy:'Copy CSS',show:'Show code',hide:'Hide code',empty:'No effects match. Try a different search.',reset:'Clear search',replay:'Replay',fallback:'Select the code to copy it.'};
 let category='All';
 const grid=document.querySelector('.grid');
+const controls=document.createElement('section');
+controls.className='lab-controls';
+controls.setAttribute('aria-label',lang==='fr'?'Personnalisation des effets':'Effect customization');
+controls.innerHTML='<div class="control-intro"><strong></strong><p></p></div><label><span></span><input id="lab-speed" type="range" min="20" max="400" value="100" step="10"><output id="speed-value">1.0×</output></label><label><span></span><input id="lab-intensity" type="range" min="50" max="180" value="100" step="10"><output id="intensity-value">100%</output></label><button id="lab-reset" type="button"></button>';
+controls.querySelector('strong').textContent=lang==='fr'?'Personnalisez les aperçus':'Customize the previews';
+controls.querySelector('p').textContent=lang==='fr'?'Vitesse et saturation des aperçus. Les valeurs sont aussi ajoutées au CSS copié.':'Adjust preview speed and saturation. Your settings are also included in copied CSS.';
+controls.querySelectorAll('label span')[0].textContent=lang==='fr'?'Durée':'Duration';
+controls.querySelectorAll('label span')[1].textContent=lang==='fr'?'Saturation':'Saturation';
+controls.querySelector('#lab-reset').textContent=lang==='fr'?'Réinitialiser':'Reset';
+document.querySelector('.filters').after(controls);
+const speed=controls.querySelector('#lab-speed'),intensity=controls.querySelector('#lab-intensity');
+function updateSettings(){
+ const duration=(Number(speed.value)/100).toFixed(1);
+ document.documentElement.style.setProperty('--lab-duration',duration+'s');
+ document.documentElement.style.setProperty('--lab-saturation',String(Number(intensity.value)/100));
+ controls.querySelector('#speed-value').textContent=duration+'s';
+ controls.querySelector('#intensity-value').textContent=intensity.value+'%';
+ document.querySelectorAll('.code-preview code').forEach(node=>{const card=node.closest('.effect');if(card&&card._getCode)node.textContent=card._getCode()});
+}
+speed.addEventListener('input',updateSettings);
+intensity.addEventListener('input',updateSettings);
+controls.querySelector('#lab-reset').addEventListener('click',()=>{speed.value='100';intensity.value='100';updateSettings()});
+
 const empty=document.createElement('div');
 empty.className='empty-state';
 empty.hidden=true;
@@ -69,7 +92,8 @@ const fullCode={
 const motionNote='\n@media (prefers-reduced-motion: reduce) { .demo, .demo::after { animation: none !important; transition: none !important; } }';
 cards.forEach(card=>{
  const key=[...card.classList].find(c=>c.startsWith('effect-'))?.slice(7);
- const code=frameBase+'\n'+(fullCode[key]||'.demo:hover { '+card.dataset.code+' }')+motionNote;
+ const baseCode=frameBase+'\n'+(fullCode[key]||'.demo:hover { '+card.dataset.code+' }')+motionNote;
+ const codeForSettings=()=>baseCode+'\n/* Adjustable preview settings */\n.demo { animation-duration: '+(Number(speed.value)/100).toFixed(2)+'s; transition-duration: '+(Number(speed.value)/100).toFixed(2)+'s; filter: saturate('+ (Number(intensity.value)/100).toFixed(2)+'); }';
  const demo=card.querySelector('.demo');
  demo.addEventListener('click',()=>{
   const active=card.classList.toggle('active');
@@ -84,7 +108,7 @@ cards.forEach(card=>{
  pre.className='code-preview';
  pre.hidden=true;
  const content=document.createElement('code');
- content.textContent=code;
+ content.textContent=getCode();
  pre.append(content);
  actions.append(show);
  card.querySelector('.info').append(pre);
@@ -92,7 +116,7 @@ cards.forEach(card=>{
  const copy=card.querySelector('.copy');
  copy.addEventListener('click',async()=>{
   try{
-   await navigator.clipboard.writeText(code);
+   await navigator.clipboard.writeText(getCode());
    copy.textContent=words.copied;
    setTimeout(()=>copy.textContent=words.copy,1400);
   }catch{
@@ -109,3 +133,4 @@ cards.forEach(card=>{
  });
 });
 apply();
+updateSettings();
