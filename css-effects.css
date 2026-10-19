@@ -25,3 +25,34 @@
 @media(max-width:1050px){.lab-controls{grid-template-columns:1fr 1fr}.lab-controls .control-intro{grid-column:1/-1}}
 @media(max-width:560px){.lab-controls{grid-template-columns:1fr;padding:18px}.lab-controls .control-intro{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){.effect .demo,.effect .demo:after{animation:none!important;transition:none!important}}
+
+/* Shared Soucy portfolio header applied to the CSS lab */
+:root{--lime:#c8ff72}
+.container{width:min(1500px,calc(100% - 92px));margin-inline:auto}
+.top{position:sticky;top:0;z-index:50;background:#0a0d0ce9;border-bottom:1px solid #293329;backdrop-filter:blur(20px)}
+.top .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:78px;padding-block:10px}
+.top .brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.top .brand-icon{width:46px;height:46px}
+.top .brand-type{display:flex;flex-direction:column;gap:0}
+.top .brand-type strong{font:bold 18px/1.1 "Space Grotesk",sans-serif;letter-spacing:-.04em;color:#f0f5eb}
+.top .brand-type small{margin-top:4px;font:500 9px/1.4 "DM Mono",monospace;letter-spacing:.4em;color:var(--lime)}
+.top .links{display:flex;align-items:center;justify-content:flex-end;gap:20px;flex-wrap:wrap}
+.top .links>a{font-size:13px;font-weight:500;text-decoration:none;color:#e5efdf;line-height:1.4}
+.top .links>a:hover{color:var(--lime)}
+.top .links>a[aria-current=page]{color:var(--lime);text-decoration:underline;text-underline-offset:7px}
+.top .links .nav-cta{border:1px solid var(--lime);border-radius:99px;padding:10px 18px;color:var(--lime)}
+.top .links .nav-cta:hover{background:var(--lime);color:#10180f}
+.top .links .language-switch{border:1px solid #56604e;border-radius:99px;padding:9px 13px;white-space:nowrap}
+.top .menu-toggle{display:none}
+.top a:focus-visible,.top button:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+@media(max-width:1050px){.container{width:calc(100% - 44px)}.top .links{gap:12px}.top .links>a{font-size:12px}.top .brand-type strong{font-size:16px}}
+@media(max-width:800px){
+ .top .nav{min-height:70px;position:relative}
+ .top .brand-icon{width:39px;height:39px}
+ .top .menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #566049;border-radius:9px;background:#182219;color:#f1f6ee;font-size:23px;cursor:pointer;flex-shrink:0}
+ .top .links{display:none;position:absolute;top:100%;left:-22px;right:-22px;flex-direction:column;align-items:stretch;gap:0;max-height:calc(100dvh - 75px);overflow:auto;background:#141d16;border:1px solid #445441;border-top:0;padding:14px 22px 22px;box-shadow:0 20px 35px #0007}
+ .top .links.open{display:flex}
+ .top .links>a{display:flex;align-items:center;min-height:47px;font-size:15px;border-bottom:1px solid #ffffff14;padding:10px 8px}
+ .top .links .nav-cta,.top .links .language-switch{margin-top:9px;justify-content:center;border-radius:9px}
+}
+@media(max-width:600px){.container{width:calc(100% - 36px)}.top .links{left:-18px;right:-18px}.top .brand-type strong{font-size:15px}.top .brand-type small{font-size:8px;letter-spacing:.3em}}
