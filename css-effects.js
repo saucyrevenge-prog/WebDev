@@ -136,3 +136,17 @@ cards.forEach(card=>{
 });
 apply();
 updateSettings();
+
+/* Navigation matches the rest of the Soucy portfolio. */
+const siteMenu=document.getElementById('menuToggle'),siteNav=document.getElementById('mainNav');
+if(siteMenu&&siteNav){
+ const isFrench=document.documentElement.lang.startsWith('fr');
+ const closeMenu=(focus=false)=>{siteNav.classList.remove('open');siteMenu.setAttribute('aria-expanded','false');siteMenu.textContent='☰';siteMenu.setAttribute('aria-label',isFrench?'Ouvrir le menu':'Open menu');if(focus)siteMenu.focus()};
+ siteMenu.addEventListener('click',()=>{const open=siteNav.classList.toggle('open');siteMenu.setAttribute('aria-expanded',String(open));siteMenu.textContent=open?'×':'☰';siteMenu.setAttribute('aria-label',isFrench?(open?'Fermer le menu':'Ouvrir le menu'):(open?'Close menu':'Open menu'))});
+ siteNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>closeMenu()));
+ document.addEventListener('keydown',event=>{if(event.key==='Escape'&&siteNav.classList.contains('open'))closeMenu(true)});
+ document.addEventListener('click',event=>{if(!siteNav.contains(event.target)&&!siteMenu.contains(event.target))closeMenu()});
+ window.addEventListener('resize',()=>{if(window.innerWidth>800&&siteNav.classList.contains('open'))closeMenu()},{passive:true});
+ window.addEventListener('pageshow',()=>closeMenu());
+}
+const siteYear=document.getElementById('year');if(siteYear)siteYear.textContent=new Date().getFullYear();
