@@ -101,6 +101,22 @@ cards.forEach(card=>{
   const active=card.classList.toggle('active');
   demo.setAttribute('aria-pressed',String(active));
  });
+ const share=document.createElement('button');
+ share.type='button';
+ share.className='share-effect';
+ share.textContent=lang==='fr'?'Partager':'Share';
+ share.setAttribute('aria-label',(lang==='fr'?'Copier le lien vers ':'Copy link to ')+card.querySelector('h2').textContent);
+ share.addEventListener('click',async()=>{
+  const link=new URL(location.href);
+  link.searchParams.set('effect',key);
+  try{
+   await navigator.clipboard.writeText(link.toString());
+   share.textContent=lang==='fr'?'Lien copié !':'Link copied!';
+  }catch{
+   prompt(lang==='fr'?'Copiez ce lien :':'Copy this link:',link.toString());
+  }
+  setTimeout(()=>share.textContent=lang==='fr'?'Partager':'Share',1700);
+ });
  const actions=card.querySelector('.actions');
  const show=document.createElement('button');
  show.type='button';
@@ -112,7 +128,7 @@ cards.forEach(card=>{
  const content=document.createElement('code');
  content.textContent=getCode();
  pre.append(content);
- actions.append(show);
+ actions.append(show,share);
  card.querySelector('.info').append(pre);
  show.addEventListener('click',()=>{pre.hidden=!pre.hidden;show.setAttribute('aria-expanded',String(!pre.hidden));show.textContent=pre.hidden?words.show:words.hide});
  const copy=card.querySelector('.copy');
@@ -150,3 +166,18 @@ if(siteMenu&&siteNav){
  window.addEventListener('pageshow',()=>closeMenu());
 }
 const siteYear=document.getElementById('year');if(siteYear)siteYear.textContent=new Date().getFullYear();
+
+/* Open a specific effect when someone follows a shared catalogue URL. */
+const selectedKey=new URL(location.href).searchParams.get('effect');
+if(selectedKey){
+ const selected=cards.find(card=>card.classList.contains('effect-'+selectedKey));
+ if(selected){
+  category='All';
+  search.value='';
+  filters.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter==='All')));
+  apply();
+  selected.classList.add('shared-highlight');
+  selected.scrollIntoView({behavior:'auto',block:'center'});
+  selected.querySelector('.demo')?.focus({preventScroll:true});
+ }
+}
