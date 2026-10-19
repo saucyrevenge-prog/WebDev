@@ -12,7 +12,8 @@
    url.searchParams.delete('lang');history.replaceState(null,'',url.pathname+url.search+url.hash);
   }else{
    const preferred=localStorage.getItem('soucy.language');
-   if(preferred&&preferred!==current&&supported.includes(englishPath)){
+   const welcomed=localStorage.getItem('soucy.welcome.chosen.v1')==='yes';
+   if(welcomed&&!url.searchParams.has('welcome')&&preferred&&preferred!==current&&supported.includes(englishPath)){
     url.pathname=preferred==='fr'?(offerRoutes[englishPath]||'/fr'+englishPath):englishPath;
     location.replace(url.href);return;
    }
