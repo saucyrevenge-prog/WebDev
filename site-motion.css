@@ -1,0 +1,14 @@
+/* Soucy-wide motion system: deliberately modest; does not hide content. */
+@keyframes soucy-enter{from{opacity:.45;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes soucy-accent{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes soucy-shine{to{background-position:200% center}}
+@media(prefers-reduced-motion:no-preference){
+ main>section:first-child :is(h1,.eyebrow),main>.hero :is(h1,.eyebrow),.new-hero :is(h1,.availability-pill){animation:soucy-enter .65s cubic-bezier(.2,.75,.25,1) both}
+ main>section:first-child p,.new-hero .hero-actions{animation:soucy-enter .78s .12s cubic-bezier(.2,.75,.25,1) both}
+ :is(.lab-card,.gallery-card,.project,.demo-card,.service-row,.portal-stat,.kpi){transition:border-color .22s ease,box-shadow .25s ease,transform .25s ease}
+ @media(hover:hover) and (pointer:fine){:is(.lab-card,.demo-card,.gallery-card,.portal-stat,.kpi):hover{transform:translateY(-4px);box-shadow:0 15px 40px #0005}}
+ :is(.brand-button,.button-lime,.button-outline,.button,.tool-button,.portal-submit,.nav-cta){transition:transform .18s ease,background-color .2s ease,border-color .2s ease,color .2s ease}
+ @media(hover:hover) and (pointer:fine){:is(.brand-button,.button-lime,.button-outline,.tool-button,.portal-submit):hover{transform:translateY(-2px)}}
+ :is(.eyebrow,.availability-pill) .pulse{animation:soucy-accent 2.6s ease-in-out infinite}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}main *,main *::before,main *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
