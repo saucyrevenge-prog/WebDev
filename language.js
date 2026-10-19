@@ -16,7 +16,7 @@
     url.pathname=preferred==='fr'?(offerRoutes[englishPath]||'/fr'+englishPath):englishPath;
     location.replace(url.href);return;
    }
-   localStorage.setItem('soucy.language',current);
+   if(preferred==='en'||preferred==='fr')localStorage.setItem('soucy.language',current);
   }
  }catch{/* Explicit language URLs still work when browser storage is unavailable. */}
  document.addEventListener('DOMContentLoaded',()=>{
