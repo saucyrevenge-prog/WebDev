@@ -56,3 +56,10 @@
  .top .links .nav-cta,.top .links .language-switch{margin-top:9px;justify-content:center;border-radius:9px}
 }
 @media(max-width:600px){.container{width:calc(100% - 36px)}.top .links{left:-18px;right:-18px}.top .brand-type strong{font-size:15px}.top .brand-type small{font-size:8px;letter-spacing:.3em}}
+
+/* Shareable effect links and clearer keyboard navigation. */
+.effect.shared-highlight{border-color:#c8ff72;box-shadow:0 0 0 2px #c8ff7240,0 16px 40px #0005}
+.actions{align-items:center}
+.actions .share-effect{background:transparent;color:#c8ff72;border-color:#647f5a}
+.actions .share-effect:hover{background:#273a2a}
+@media(max-width:650px){.actions button{flex:1;white-space:nowrap}.effect{scroll-margin-top:85px}}
