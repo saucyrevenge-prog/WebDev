@@ -9,3 +9,19 @@
 .stage .demo{touch-action:manipulation}
 .effect:focus-within{border-color:#a1d178}
 @media(max-width:650px){.filters{align-items:stretch}.filter{min-height:44px}.grid{padding-bottom:45px}.info{padding:18px}.hero h1{overflow-wrap:break-word}.stage{min-height:175px}.barlinks a{min-height:36px;display:inline-flex;align-items:center}}
+
+/* CSS Lab controls */
+.lab-controls{display:grid;grid-template-columns:minmax(220px,1.3fr) repeat(2,minmax(160px,1fr)) auto;align-items:center;gap:22px;padding:22px 24px;margin:0 0 25px;border:1px solid #456044;border-radius:14px;background:#19251b}
+.lab-controls .control-intro strong{font-size:17px}
+.lab-controls .control-intro p{margin:4px 0 0;color:#b5c8af;font-size:12px;line-height:1.6}
+.lab-controls label{display:grid;grid-template-columns:1fr auto;gap:8px;color:#e7f2df;font-size:13px}
+.lab-controls label input{grid-column:1/-1;width:100%;accent-color:#c8ff72;cursor:pointer}
+.lab-controls output{font:12px ui-monospace,monospace;color:#c8ff72}
+#lab-reset{min-height:42px;padding:8px 14px;border:1px solid #71896c;border-radius:8px;background:#27372a;color:#e8f5df;cursor:pointer}
+.lab-controls button:focus-visible,.lab-controls input:focus-visible{outline:2px solid #c8ff72;outline-offset:4px}
+.effect .demo{filter:saturate(var(--lab-saturation,1))}
+.effect:is(:hover,.active) .demo{transition-duration:var(--lab-duration,.5s)}
+.effect-pulse .demo,.effect-float .demo,.effect-spin .demo,.effect-bounce .demo,.effect-shimmer .demo:after,.effect-gradient .demo,.effect-typewriter .demo span{animation-duration:var(--lab-duration,2s)}
+@media(max-width:1050px){.lab-controls{grid-template-columns:1fr 1fr}.lab-controls .control-intro{grid-column:1/-1}}
+@media(max-width:560px){.lab-controls{grid-template-columns:1fr;padding:18px}.lab-controls .control-intro{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){.effect .demo,.effect .demo:after{animation:none!important;transition:none!important}}
