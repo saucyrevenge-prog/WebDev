@@ -63,3 +63,15 @@ body{font-family:'DM Sans',Arial,sans-serif}
  .top .links>a{font-size:15px}
 }
 @media(max-width:420px){.top .brand-icon{width:36px;height:36px}.top .brand-type strong{font-size:15px}.top .brand-type small{font-size:8px;letter-spacing:.28em}}
+
+
+/* WeUI-style mobile action sheet, adapted to soucy.company's lime design. */
+.live-sheet[hidden]{display:none}
+.live-sheet{position:absolute;inset:0;z-index:5;display:flex;align-items:flex-end;background:rgba(8,17,10,.8);border-radius:12px}
+.live-sheet__dialog{width:100%;padding:12px 12px max(12px,env(safe-area-inset-bottom));border:1px solid #6c8860;border-radius:14px 14px 0 0;background:#17251a;box-shadow:0 -15px 38px #0008;display:grid;gap:6px}
+.live-sheet__dialog strong{padding:4px 10px 10px;font-size:13px;color:#e8f5e0}
+.live-sheet__dialog button{width:100%;min-height:44px;background:#273b2c;color:#edf8e8;text-align:left;border:1px solid #4a6647;border-radius:7px;padding:8px 11px;font-size:13px;cursor:pointer}
+.live-sheet__dialog button:hover,.live-sheet__dialog button:focus-visible{border-color:#c6ff1d}
+.live-sheet__dialog button[data-close]{margin-top:4px;color:#c6ff1d}
+.sheet-result{position:absolute;bottom:4px;left:8px;right:8px;text-align:center;color:#c6ff1d;font-size:11px;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.live-sheet__dialog{transition:none}}

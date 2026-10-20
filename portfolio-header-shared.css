@@ -24,3 +24,25 @@ body{font-family:'DM Sans',Arial,sans-serif}
  .top .links .nav-cta,.top .links .language-switch{align-self:stretch!important;justify-content:center!important;margin-top:10px!important;border-radius:9px!important}
 }
 @media(max-width:420px){.top .brand-icon{width:36px!important;height:36px!important}.top .brand-type strong{font-size:15px!important}.top .brand-type small{font-size:8px!important;letter-spacing:.28em!important}}
+
+
+/* WeUI touch and active states for the shared header and interactive labs. */
+.top .menu-toggle,.top .links>a{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.top .menu-toggle:focus-visible,.top .links>a:focus-visible{
+  outline:2px solid #c6ff1d!important;
+  outline-offset:3px!important;
+}
+.top .menu-toggle:active{background:#35482e!important}
+@media(max-width:740px){
+ .top .links>a:active{background:rgba(198,255,29,.1)!important}
+ .top .menu-toggle{min-width:44px;min-height:44px}
+}
+.demo-card :is(button,select,input):focus-visible{
+  outline:2px solid #c6ff1d;
+  outline-offset:3px;
+}
+.demo-card :is(button,select){touch-action:manipulation;min-height:44px}
+.demo-card input[type=checkbox]{accent-color:#c6ff1d}
+@media(prefers-reduced-motion:reduce){
+ .top .links>a,.top .menu-toggle{transition:none!important}
+}
