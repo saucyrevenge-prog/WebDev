@@ -1,3 +1,10 @@
+/* Load shared, cookie-free public analytics once per page. */
+(function(){
+ if(document.querySelector('script[data-portfolio-metrics]'))return;
+ const script=document.createElement('script');script.src='/metrics.js';script.defer=true;
+ script.dataset.portfolioMetrics='true';document.head.appendChild(script);
+})();
+
 const cards=[...document.querySelectorAll('.effect')];
 const search=document.querySelector('#search');
 const filters=[...document.querySelectorAll('[data-filter]')];
