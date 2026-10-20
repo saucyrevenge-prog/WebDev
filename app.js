@@ -1,3 +1,10 @@
+/* Load shared, cookie-free public analytics once per page. */
+(function(){
+ if(document.querySelector('script[data-portfolio-metrics]'))return;
+ const script=document.createElement('script');script.src='/metrics.js';script.defer=true;
+ script.dataset.portfolioMetrics='true';document.head.appendChild(script);
+})();
+
 const nav=document.getElementById('mainNav'),toggle=document.getElementById('menuToggle');toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'×':'☰'});nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav?.classList.contains('open')){nav.classList.remove('open');toggle?.setAttribute('aria-expanded','false');if(toggle){toggle.textContent='☰';toggle.focus();}}});
 window.matchMedia('(min-width: 741px)').addEventListener('change',e=>{if(e.matches&&nav?.classList.contains('open')){nav.classList.remove('open');toggle?.setAttribute('aria-expanded','false');if(toggle)toggle.textContent='☰';}});
 const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
