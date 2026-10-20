@@ -71,3 +71,40 @@
 .contact-direct a{color:#1a3111}
 @media(max-width:1000px){.projects{gap:90px}.process-grid{grid-template-columns:repeat(2,1fr)}.section-head{grid-template-columns:1fr}.section-head p{margin:12px 0 0}.project,.project:nth-child(even){grid-template-columns:1fr 1fr}.project-art{min-height:260px}}
 @media(max-width:740px){.section{padding:85px 0}.projects{gap:75px}.project,.project:nth-child(even){grid-template-columns:1fr;gap:25px}.project:nth-child(even) .project-info{order:1}.project:nth-child(even) .project-art{order:2}.project:nth-child(2) .project-art{transform:none}.project-art{min-height:250px}.project h3{font-size:clamp(43px,10vw,65px)}.service-row{grid-template-columns:33px 1fr 20px}.service-row p{grid-column:2}.process-grid{grid-template-columns:1fr;gap:8px}.process-step{padding:26px 0}.process-step h3{margin:20px 0}.toolkit{gap:8px}.contact-form-wrap{margin-top:55px}.contact h2{font-size:clamp(62px,13vw,98px)}}
+
+
+/* WeUI-informed utility interactions, adapted to soucy.company's acid-lime palette.
+   Avoid global resets: project pages, labs, and the bilingual site keep their own layout. */
+:root{--sc-touch:44px;--sc-focus:#c6ff1d;--sc-press:rgba(198,255,29,.09)}
+.inquiry-form :is(input,select,textarea),
+.contact-form-shell :is(input,select,textarea){
+  min-height:48px;
+  min-width:0;
+  transition:border-color .16s ease,box-shadow .16s ease;
+}
+.inquiry-form :is(input,select,textarea):focus-visible,
+.contact-form-shell :is(input,select,textarea):focus-visible{
+  outline:2px solid var(--sc-focus);
+  outline-offset:2px;
+  box-shadow:0 0 0 4px rgba(198,255,29,.12);
+}
+:is(.button-lime,.button-outline,.btn,.nav-cta):focus-visible{
+  outline:2px solid var(--sc-focus);
+  outline-offset:4px;
+}
+:is(.button-lime,.button-outline,.nav-cta){min-height:var(--sc-touch);touch-action:manipulation}
+.inquiry-form :is(input[type=checkbox],input[type=radio]){accent-color:#c6ff1d}
+.inquiry-form [role=alert]:not(:empty),.inquiry-form [role=status]:not(:empty){
+  overflow-wrap:anywhere;
+  line-height:1.5;
+}
+@media(max-width:740px){
+ .inquiry-form :is(input,select,textarea){font-size:16px}
+ :is(.button-lime,.button-outline,.nav-cta){min-height:48px}
+}
+@media(prefers-contrast:more){
+ .inquiry-form :is(input,select,textarea){border-color:#d8eeba}
+}
+@media(prefers-reduced-motion:reduce){
+ .inquiry-form :is(input,select,textarea){transition:none}
+}
