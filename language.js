@@ -1,3 +1,10 @@
+/* Load shared, cookie-free public analytics once per page. */
+(function(){
+ if(document.querySelector('script[data-portfolio-metrics]'))return;
+ const script=document.createElement('script');script.src='/metrics.js';script.defer=true;
+ script.dataset.portfolioMetrics='true';document.head.appendChild(script);
+})();
+
 /* One shared language preference for every portfolio page. */
 (()=>{
  const url=new URL(location.href),explicit=url.searchParams.get('lang');
